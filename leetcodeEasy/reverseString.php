@@ -16,6 +16,25 @@ Output: ["h","a","n","n","a","H"]
 因為要return NULL 所以 $s 裡面交換 -> 所以要用數值交換法 宣告tmp
 */
 
+function reverseString($s)
+{
+    $left = 0;
+    $right = count($s) - 1;
+    // 直到 left 小於 right
+    while ($left < $right) {
+        $tmp = $s[$right];
+        $s[$left] = $s[$right];
+        $s[$left] = $tmp;
+        $left++;
+        $right--;
+    }
+    return NULL;
+}
 
-
-?>
+/* php 內建有 array_reverse
+function reverseString(&$s)
+{
+    $s = array_reverse($s);
+    return null;
+}
+ */
