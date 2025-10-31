@@ -12,6 +12,7 @@ FizzBuzz（1~n 判斷可被 3 / 5 整除輸出文字
 
 <?php
 /**
+ * 1. TowSum
      * @param int[] $nums
      * @param Integer $target
      * @return Integer[]
