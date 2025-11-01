@@ -5,6 +5,7 @@ SELECT * FROM `users` WHERE `age` > 25;
 
 -- 訂正:題目要求 name,email
 -- 所以其實我只需要選擇name email 欄位就好
+
 SELECT `name`, `email` FROM `users` WHERE `age` > 25
 
 -- Q2. 找出每位使用者的訂單總金額
