@@ -13,12 +13,12 @@ FizzBuzz（1~n 判斷可被 3 / 5 整除輸出文字
 <?php
 /**
  * 1. TowSum
-     * @param int[] $nums
-     * @param Integer $target
-     * @return Integer[]
-     * 會需要印出[$i, $j] -> 所以會需要雙迴圈
-     */
-    /* 
+ * @param int[] $nums
+ * @param Integer $target
+ * @return Integer[]
+ * 會需要印出[$i, $j] -> 所以會需要雙迴圈
+ */
+/* 
     第一次解題自己想法
     問題:Two Sum 要找 任意兩個元素，不是只加相鄰兩個，需要雙迴圈（暴力法）或 hash map 優化
     function twoSum($nums, $target) {
@@ -30,16 +30,30 @@ FizzBuzz（1~n 判斷可被 3 / 5 整除輸出文字
             $i++;
         }        
     } */
-   function twoSum($nums, $target) {
+function twoSum($nums, $target)
+{
     // 先計算陣列長度
     $n = count($nums);
-    for($i = 0; $i < $n; $i++) {
-        for($j = $i + 1;$j < $n; $j++) {
-            if($nums[$i]+$nums[$j] == $target) {
+    for ($i = 0; $i < $n; $i++) {
+        for ($j = $i + 1; $j < $n; $j++) {
+            if ($nums[$i] + $nums[$j] == $target) {
                 return [$i, $j];
             }
         }
     }
-   }
-   // hashmap
+}
+
+// hashmap
+
+function twoSumHashMap($nums, $target)
+{
+    $map = [];
+    foreach ($nums as $i => $value) {
+        $diff = $target - $value;
+        if(isset($map[$diff])) {
+            return [$map[$diff],$i];
+        }
+        $map[$value] = $i;
+    }
+}
 ?>
