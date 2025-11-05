@@ -15,6 +15,10 @@ SELECT `name`, `email` FROM `users` WHERE `age` > 25
 
 -- 結果欄位：name, total_amount
 
+SELECT u.name, SUM(o.amount) AS total_amount
+FROM users u JOIN orders o ON u.id = o.user_id
+GROUP BY u.id;
+
 SELECT * FROM `users` INNER JOIN `orders` ON `users`.`id` = `orders`.`id`
 
 -- 訂正:
@@ -30,7 +34,10 @@ GROUP BY `users.id`
 -- Q3. 找出總訂單金額 > 1000 的使用者
 -- 接續 Q2 資料表
 
-HAVING `amout > 1000`;
+SELECT u.name, SUM(o.amount) AS total_amount
+FROM users u JOIN orders o ON u.id = o.user_id
+GROUP BY u.id
+HAVING total_amount > 1000;
 
 -- 訂正:
 
